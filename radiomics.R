@@ -81,7 +81,7 @@ wf <- workflow_set(preproc=list(rec),
                                knn=knn_mod, 
                                rf=rf_mod,
                                svm=svm_mod))
-folds <- bootstraps(df,10)
+folds <- bootstraps(df,1000)
 ctr <- control_resamples(save_pred = TRUE)
 wf_res <- wf %>% 
   workflow_map("fit_resamples",               
